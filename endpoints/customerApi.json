@@ -1,0 +1,324 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Customer API",
+    "version": "1.0",
+    "description": "This a customer API"
+  },
+  "paths": {
+    "/customer/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/customer"
+            },
+            "examples": {
+              "application/json": {
+                "customerid": "234234",
+                "name": "Laura Heritage",
+                "address": "33 Park Ave",
+                "phone": "555-555-5555"
+              }
+            }
+          }
+        },
+        "summary": "get customer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {}
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "default": "234234"
+          }
+        ],
+        "x-flow": "customerApi-getCustomerById"
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "application/json": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/customer"
+            },
+            "x-examples": {
+              "application/json": {
+                "customerid": "2322434",
+                "name": "laura",
+                "address": "342 Sandstone Dr",
+                "phone": "555-555-5555"
+              }
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "default": "234234"
+          }
+        ],
+        "x-flow": "customerApi-postCustomerById"
+      },
+      "head": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "default": "234234"
+          }
+        ],
+        "x-flow": "customerApi-headCustomerById"
+      },
+      "options": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "headers": {
+              "allow": {
+                "type": "string",
+                "default": "OPTIONS, GET, HEAD, DELETE, POST, PUT"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "default": "234234"
+          }
+        ],
+        "x-flow": "customerApi-optionsCustomerById"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/customer"
+            },
+            "x-examples": {
+              "application/json": {
+                "customerid": "234234",
+                "name": "Laura Heritage",
+                "address": "33 Park Ave",
+                "phone": "555-555-5555"
+              }
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "default": "234234"
+          }
+        ],
+        "x-flow": "customerApi-putCustomerById"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "default": "234234"
+          }
+        ],
+        "x-flow": "customerApi-deleteCustomerById"
+      }
+    },
+    "/customer": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/customerlist"
+            },
+            "examples": {
+              "application/json": {
+                "customers": [
+                  {
+                    "customer": {
+                      "customerid": "2342342",
+                      "name": "Sam Smith"
+                    }
+                  },
+                  {
+                    "customer": {
+                      "customerid": "3451315",
+                      "name": "Judy Jones"
+                    }
+                  },
+                  {
+                    "customer": {
+                      "customerid": "45235245",
+                      "name": "Dale Denver"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "default": "usa"
+          },
+          {
+            "in": "query",
+            "name": "revenue",
+            "type": "string",
+            "default": "600000"
+          }
+        ],
+        "x-flow": "customerApi-getCustomer"
+      },
+      "head": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "x-flow": "customerApi-headCustomer"
+      },
+      "options": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "headers": {
+              "allow": {
+                "type": "string",
+                "default": "OPTIONS, GET, HEAD"
+              }
+            }
+          }
+        },
+        "x-flow": "customerApi-optionsCustomer"
+      }
+    }
+  },
+  "host": "forrester.axway.com",
+  "basePath": "/forrester/customer/v1",
+  "definitions": {
+    "customerlist": {
+      "type": "object",
+      "properties": {
+        "customers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "customer": {
+                "type": "object",
+                "properties": {
+                  "customerid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "customer": {
+      "type": "object",
+      "description": "Customer",
+      "title": "customer",
+      "properties": {
+        "customerid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
