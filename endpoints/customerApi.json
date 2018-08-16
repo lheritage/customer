@@ -275,7 +275,6 @@
     }
   },
   "host": "forrester.axway.com",
-  "basePath": "/forrester/customer/v1",
   "definitions": {
     "customerlist": {
       "type": "object",

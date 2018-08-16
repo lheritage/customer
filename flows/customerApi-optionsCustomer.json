@@ -50,7 +50,7 @@
 				{
 					"name": "headers",
 					"type": "object",
-					"value": "{\n    \"allow\": \"OPTIONS, GET, HEAD\"\n}"
+					"value": "{\n    \"allow\": \"OPTIONS, GET, PUT, POST, DELETE, HEAD\"\n}"
 				}
 			],
 			"outputs": {
